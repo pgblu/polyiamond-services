@@ -1,10 +1,6 @@
 require_relative 'polyiamond'
 require 'set'
 
-def grow_all(collection, set)
-  collection.map {|sequence| cyclic_grow(sequence, set)}.flatten(1)
-end
-
 MONIAMONDS = [[2,2,2]]
 polyiamond_set = Set.new([MONIAMONDS])
 puts "number of moniamonds: #{MONIAMONDS.count}\npolyiamond_set: #{polyiamond_set.count}"

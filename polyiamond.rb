@@ -54,38 +54,7 @@ def cyclic_grow(seq, results_so_far)
 end
 
 def grow_all(collection, set)
-  collection.map {|sequence| cyclic_grow(sequence, set)}.flatten(1)
+  collection.map {|sequence| cyclic_grow(sequence, set)}.flatten(1).sort_by do |seq|
+    canonical_index(seq)
+  end
 end
-
-tetriamond.map {|k| canonical_index(k)}.display
-puts
-
-# tetriamond[0].display
-# puts
-# puts
-# test_seq1 = [1,1,1,2,-2,2,1]
-# test_seq1.display
-# puts
-# cyclic_grow(test_seq1).display
-# puts
-# puts
-# puts
-# test_seq2 = [-2,2,1,1,1,1,2]
-# test_seq2.display
-# puts
-# cyclic_grow(test_seq2).display
-# puts
-# puts
-# puts
-# test_seq3 = [2,1,1,1,1,2,-2]
-# test_seq3.display
-# puts
-# cyclic_grow(test_seq3).display
-# puts
-# puts
-# puts
-# test_seq4 = [0,2,-2]
-# test_seq4.display
-# puts
-# cyclic_grow(test_seq4).display
-# puts
