@@ -1,25 +1,27 @@
 :root {
   --size: 15px;
+  --rotationConstant: 60deg;
+  --speedConstant: 2s;
 }
 
 .container {
-  margin: 100px 20px;
-  width: 700px;
-  display: flex;
-  justify-content: space-evenly;
+  margin: 100px 100px;
+  width: 960px;
 }
 
 .triangle-up {
-  width: 0;
+  position: absolute;
   height: 0;
+  width: 0;
   border-left: var(--size) solid transparent;
   border-right: var(--size) solid transparent;
   border-bottom: calc(var(--size) * 1.732) solid red;
 }
 
 .triangle-down {
-  width: 0;
+  position: absolute;
   height: 0;
+  width: 0;
   border-left: var(--size) solid transparent;
   border-right: var(--size) solid transparent;
   border-top: calc(var(--size) * 1.732) solid red;
