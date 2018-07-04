@@ -29,40 +29,40 @@
 
 .axis-base-left-up {
   transform-origin: 0% 100%;
-  animation: 2s upToDown infinite;
+  animation: var(--speedConstant) upToDown infinite;
 }
 
 .axis-base-right-up {
   transform-origin: 100% 100%;
-  animation: 2s upToDown infinite;
+  animation: var(--speedConstant) upToDown infinite;
 }
 
 .axis-vertex-up {
   transform-origin: 50% 0%;
-  animation: 2s upToDown infinite;
+  animation: var(--speedConstant) upToDown infinite;
 }
 
 .axis-base-left-down {
   transform-origin: 0% 0%;
-  animation: 2s downToUp infinite;
+  animation: var(--speedConstant) downToUp infinite;
 }
 
 .axis-base-right-down {
   transform-origin: 100% 0%;
-  animation: 2s downToUp infinite;
+  animation: var(--speedConstant) downToUp infinite;
 }
 
 .axis-vertex-down {
   transform-origin: 50% 100%;
-  animation: 2s downToUp infinite;
+  animation: var(--speedConstant) downToUp infinite;
 }
 
 @keyframes downToUp {
   from {transform: rotate(0deg);}
-  to {transform: rotate(-120deg);}
+  to {transform: rotate(calc(0deg - var(--rotationConstant)));}
 }
 
 @keyframes upToDown {
   from {transform: rotate(0deg);}
-  to {transform: rotate(120deg);}
+  to {transform: rotate(var(--rotationConstant));}
 }
