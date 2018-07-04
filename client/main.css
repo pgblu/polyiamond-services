@@ -1,0 +1,66 @@
+:root {
+  --size: 15px;
+}
+
+.container {
+  margin: 100px 20px;
+  width: 700px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.triangle-up {
+  width: 0;
+  height: 0;
+  border-left: var(--size) solid transparent;
+  border-right: var(--size) solid transparent;
+  border-bottom: calc(var(--size) * 1.732) solid red;
+}
+
+.triangle-down {
+  width: 0;
+  height: 0;
+  border-left: var(--size) solid transparent;
+  border-right: var(--size) solid transparent;
+  border-top: calc(var(--size) * 1.732) solid red;
+}
+
+.axis-base-left-up {
+  transform-origin: 0% 100%;
+  animation: 2s upToDown infinite;
+}
+
+.axis-base-right-up {
+  transform-origin: 100% 100%;
+  animation: 2s upToDown infinite;
+}
+
+.axis-vertex-up {
+  transform-origin: 50% 0%;
+  animation: 2s upToDown infinite;
+}
+
+.axis-base-left-down {
+  transform-origin: 0% 0%;
+  animation: 2s downToUp infinite;
+}
+
+.axis-base-right-down {
+  transform-origin: 100% 0%;
+  animation: 2s downToUp infinite;
+}
+
+.axis-vertex-down {
+  transform-origin: 50% 100%;
+  animation: 2s downToUp infinite;
+}
+
+@keyframes downToUp {
+  from {transform: rotate(0deg);}
+  to {transform: rotate(-120deg);}
+}
+
+@keyframes upToDown {
+  from {transform: rotate(0deg);}
+  to {transform: rotate(120deg);}
+}
