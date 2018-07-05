@@ -1,7 +1,7 @@
 const SIZE = 30;
 const GRIDOFFSETX = SIZE;
 const GRIDOFFSETY = SIZE;
-const RATIO = Math.sqrt(3);
+const RATIO = 1.73205;
 
 const VERTEX_NAMES = [
 'vertex', 'base-left', 'base-right'
