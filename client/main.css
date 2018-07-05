@@ -1,7 +1,8 @@
 :root {
-  --size: 15px;
+  --size: 30px;
+  --ratio: 1.73205;
   --rotationConstant: 60deg;
-  --speedConstant: 2s;
+  --speedConstant: 0.2s;
 }
 
 .container {
@@ -15,7 +16,7 @@
   width: 0;
   border-left: var(--size) solid transparent;
   border-right: var(--size) solid transparent;
-  border-bottom: calc(var(--size) * 1.732) solid red;
+  border-bottom: calc(var(--size) * var(--ratio)) solid red;
 }
 
 .triangle-down {
