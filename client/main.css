@@ -25,37 +25,37 @@
   width: 0;
   border-left: var(--size) solid transparent;
   border-right: var(--size) solid transparent;
-  border-top: calc(var(--size) * 1.732) solid red;
+  border-top: calc(var(--size) * var(--ratio)) solid red;
 }
 
 .axis-base-left-up {
   transform-origin: 0% 100%;
-  animation: var(--speedConstant) upToDown infinite;
+  animation: var(--speedConstant) upToDown 1;
 }
 
 .axis-base-right-up {
   transform-origin: 100% 100%;
-  animation: var(--speedConstant) upToDown infinite;
+  animation: var(--speedConstant) upToDown 1;
 }
 
 .axis-vertex-up {
   transform-origin: 50% 0%;
-  animation: var(--speedConstant) upToDown infinite;
+  animation: var(--speedConstant) upToDown 1;
 }
 
 .axis-base-left-down {
   transform-origin: 0% 0%;
-  animation: var(--speedConstant) downToUp infinite;
+  animation: var(--speedConstant) downToUp 1;
 }
 
 .axis-base-right-down {
   transform-origin: 100% 0%;
-  animation: var(--speedConstant) downToUp infinite;
+  animation: var(--speedConstant) downToUp 1;
 }
 
 .axis-vertex-down {
   transform-origin: 50% 100%;
-  animation: var(--speedConstant) downToUp infinite;
+  animation: var(--speedConstant) downToUp 1;
 }
 
 @keyframes downToUp {
