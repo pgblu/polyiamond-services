@@ -70,24 +70,30 @@ def render(shape, my_turtle, start, flag, screen):
     my_turtle.forward(11)
     my_turtle.left(angle * 60.0)
 
-home = [300, 250]
-window = turtle.Screen()
-window.bgcolor("#eebeca")
-winka = turtle.Turtle()
-winka.speed(10)
+def runThisPuppy(myCollection):
+  home = [300, 250]
+  window = turtle.Screen()
+  window.bgcolor("#eebeca")
+  winka = turtle.Turtle()
+  winka.speed(10)
 
-j = 250
-k = 200
-index = 1
-for shape in collections[sys.argv[1]]:
-  render(shape, winka, [j,k], index, window)
-  j -= 60
-  if index % 11 == 0:
-    j = 250
-    k -= 55
-  index += 1
+  j = 250
+  k = 200
+  index = 1
+  for shape in myCollection:
+    render(shape, winka, [j,k], index, window)
+    j -= 60
+    if index % 11 == 0:
+      j = 250
+      k -= 55
+    index += 1
 
-winka.pu()
-winka.speed(1)
-winka.goto(home)
-window.exitonclick()
+  winka.pu()
+  winka.speed(1)
+  winka.goto(home)
+  window.exitonclick()
+
+if any(name == sys.argv[1] for name in collections.keys()):
+  runThisPuppy(collections[sys.argv[1]])
+else:
+  sys.exit("no valid polyiamond type specified (e.g., \"moniamonds\", \"octiamonds\", etc.)")
