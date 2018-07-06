@@ -73,7 +73,7 @@ def render(shape, my_turtle, start, flag, screen):
 def runThisPuppy(myCollection):
   home = [300, 250]
   window = turtle.Screen()
-  window.bgcolor("#eebeca")
+  window.bgcolor(randomColor())
   winka = turtle.Turtle()
   winka.speed(10)
 
@@ -87,6 +87,7 @@ def runThisPuppy(myCollection):
       j = 250
       k -= 55
     index += 1
+    window.bgcolor(randomColor())
 
   winka.pu()
   winka.speed(1)
