@@ -13,11 +13,11 @@ function GridPoint(x, y) {
 }
 
 function setValues(obj) {
-  for (var i = 0; i <= 7; i++) {
-    for (var j = 0; j <= 7; j++) {
+  for (let i = 0; i <= 7; i++) {
+    for (let j = 0; j <= 7; j++) {
       const ROWOFFSET = SIZE * (i % 2);
-      var x = SIZE * j + ROWOFFSET;
-      var y = SIZE * RATIO * i;
+      let x = SIZE * j + ROWOFFSET;
+      let y = SIZE * RATIO * i;
       obj.push(new GridPoint(x,y));
     }
   }
@@ -57,13 +57,13 @@ function Polyiamond() {
 }
 
 $(document).ready(function() {
-  var myGridPoints = new Array();
+  let myGridPoints = new Array();
   setValues(myGridPoints);
-  var tgl1 = new Moniamond(myGridPoints[1],'down');
+  let tgl1 = new Moniamond(myGridPoints[1],'down');
   tgl1.render('tgl-1');
-  var tgl2 = new Moniamond(myGridPoints[2],'up');
+  let tgl2 = new Moniamond(myGridPoints[2],'up');
   tgl2.render('tgl-2');
-  var tgl3 = new Moniamond(myGridPoints[9],'down');
+  let tgl3 = new Moniamond(myGridPoints[9],'down');
   tgl3.render('tgl-3');
   tgl2.rotate(VERTEX_NAMES[0]);
   tgl3.rotate(VERTEX_NAMES[2]);
