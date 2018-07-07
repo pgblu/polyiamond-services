@@ -14,16 +14,18 @@ function GridPoint(x, y) {
   this.y = GRIDOFFSETY + y;
 }
 
-function setValues(obj) {
+function setValues() {
+  let myArray = [];
   for (let i = 0; i <= 7; i++) {
     for (let j = 0; j <= 7; j++) {
       const ROWOFFSET = SIZE * (i % 2);
       let x = SIZE * j + ROWOFFSET;
       let y = SIZE * RATIO * i;
-      obj.push(new GridPoint(x,y));
+      myArray.push(new GridPoint(x,y));
     }
   }
-};
+  return myArray;
+}
 
 function Moniamond(gridPoint, orientation) {
   this.left = gridPoint.x + "px";
@@ -34,38 +36,32 @@ function Moniamond(gridPoint, orientation) {
 }
 
 Moniamond.prototype.render = function(aNode) {
-  this.node = '.' + aNode;
-  $(this.node).css({
-    'left': this.left,
-    'top': this.top,
-  }).addClass('triangle-' + this.orientation);
-}
+};
 
 Moniamond.prototype.rotate = function(vertexName) {
-  if (this.node != undefined) {
+  if (this.node !== undefined) {
     this.vertexClass = 'axis-' + vertexName + '-' + this.orientation;
     $(this.node).addClass(this.vertexClass);
   }
-}
+};
 
 Moniamond.prototype.clear = function() {
-  if (this.node != undefined) {
+  if (this.node !== undefined) {
     $(this.node).removeClass(this.vertexClass);
   }
-}
+};
 
 function Polyiamond() {
 
 }
 
 $(document).ready(function() {
-  let myGridPoints = new Array();
-  setValues(myGridPoints);
-  let tgl1 = new Moniamond(myGridPoints[1],'down');
+  let myGridPoints = setValues();
+  let tgl1 = new Moniamond(myGridPoints[1], 'down');
   tgl1.render('tgl-1');
-  let tgl2 = new Moniamond(myGridPoints[2],'up');
+  let tgl2 = new Moniamond(myGridPoints[2], 'up');
   tgl2.render('tgl-2');
-  let tgl3 = new Moniamond(myGridPoints[9],'down');
+  let tgl3 = new Moniamond(myGridPoints[9], 'down');
   tgl3.render('tgl-3');
   tgl2.rotate(VERTEX_NAMES[0]);
   tgl3.rotate(VERTEX_NAMES[2]);
