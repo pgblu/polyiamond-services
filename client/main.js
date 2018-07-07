@@ -1,3 +1,5 @@
+'use strict';
+
 const SIZE = 30;
 const GRIDOFFSETX = SIZE;
 const GRIDOFFSETY = SIZE;
