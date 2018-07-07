@@ -2,7 +2,7 @@
   --size: 30px;
   --ratio: 1.73205;
   --rotationConstant: 60deg;
-  --speedConstant: 0.2s;
+  --speedConstant: 12s;
 }
 
 .container {
