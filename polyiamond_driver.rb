@@ -24,7 +24,7 @@ puts "number of octiamonds: #{OCTIAMONDS.count}\npolyiamond_set: #{polyiamond_se
 puts
 puts
 [TRIAMONDS, TETRIAMONDS, PENTIAMONDS, HEXIAMONDS, HEPTIAMONDS, OCTIAMONDS].each do |collection|
-  collection.shuffle.display
+  collection.display
   puts
 end
 

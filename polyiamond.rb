@@ -1,3 +1,9 @@
+class Polyiamond
+end
+
+class PolyiamondCollection
+end
+
 moniamond = [[2,2,2]]
 
 diamond = [[1,2,1,2]]
@@ -36,14 +42,14 @@ def cyclic_grow(seq, results_so_far)
 
     if value != -2
       new_seq = seq.dup
-      if next_value != -2
-        new_seq[index] -= 1
-        new_seq[my_next] -= 1
-        new_seq.insert(my_next,2)
-      else
+      if next_value == -2
         new_seq[index] -= 1
         new_seq[my_after_next] -= 1
         new_seq.delete_at(my_next)
+      else
+        new_seq[index] -= 1
+        new_seq[my_next] -= 1
+        new_seq.insert(my_next,2)
       end
       if results_so_far.add?(canonical_index(new_seq))
         result.push(new_seq)
