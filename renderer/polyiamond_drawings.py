@@ -72,10 +72,15 @@ def randomColor():
   blue = random.randint(0,255)
   return "#" + decimal_to_hex_string(red) + decimal_to_hex_string(green) + decimal_to_hex_string(blue)
 
-def render(shape, my_turtle, start, flag, screen):
+def render(shape, my_turtle, start, flag, screen, init):
   my_turtle.pu()
   my_turtle.goto(start)
   my_turtle.pd()
+
+  if init == 1:
+    for x in range(0,3):
+      my_turtle.forward(11)
+      my_turtle.left(120)
 
   for angle in shape:
     my_turtle.forward(11)
@@ -86,13 +91,13 @@ def runThisPuppy(myCollection):
   window = turtle.Screen()
   window.bgcolor(randomColor())
   winka = turtle.Turtle()
-  winka.speed(10)
+  winka.speed(100)
 
   j = 250
   k = 200
   index = 1
   for shape in myCollection:
-    render(shape, winka, [j,k], index, window)
+    render(shape, winka, [j,k], index, window, 1)
     j -= 60
     if index % 11 == 0:
       j = 250
