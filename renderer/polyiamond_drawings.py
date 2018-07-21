@@ -1,6 +1,17 @@
 import sys, math, time
 import turtle, random
 
+indices = {
+  1: "moniamonds",
+  2: "diamonds",
+  3: "triamonds",
+  4: "tetriamonds",
+  5: "pentiamonds",
+  6: "hexiamonds",
+  7: "heptiamonds",
+  8: "octiamonds"
+}
+
 collections = {
   "moniamonds" :  [[2, 2, 2]],
 
@@ -94,7 +105,10 @@ def runThisPuppy(myCollection):
   winka.goto(home)
   window.exitonclick()
 
+input = sys.argv[1]
 if any(name == sys.argv[1] for name in collections.keys()):
-  runThisPuppy(collections[sys.argv[1]])
+  runThisPuppy(collections[input])
+elif input.isalpha() and input < length(collections):
+  runThisPuppy(collections[indices[int(input)]])
 else:
   sys.exit("no valid polyiamond type specified (e.g., \"moniamonds\", \"octiamonds\", etc.)")
