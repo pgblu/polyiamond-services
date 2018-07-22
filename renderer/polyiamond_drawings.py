@@ -110,10 +110,12 @@ def runThisPuppy(myCollection):
   winka.goto(home)
   window.exitonclick()
 
+
+#driver begins here
 input = sys.argv[1]
 if any(name == sys.argv[1] for name in collections.keys()):
   runThisPuppy(collections[input])
-elif input.isalpha() and input < length(collections):
+elif input.isdigit() and int(input) <= len(collections):
   runThisPuppy(collections[indices[int(input)]])
 else:
-  sys.exit("no valid polyiamond type specified (e.g., \"moniamonds\", \"octiamonds\", etc.)")
+  sys.exit("enter a valid polyiamond type (e.g., \"moniamonds\", \"octiamonds\", etc.) or a numeric value between 1 and 8")
