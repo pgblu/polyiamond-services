@@ -63,14 +63,19 @@ collections = {
                   ]
 }
 
-def decimal_to_hex_string(dec):
-  return hex(dec).split('x')[-1].zfill(2)
+def renderTriangle(my_turtle):
+  for x in range(0,3):
+    my_turtle.forward(11)
+    my_turtle.left(120)
 
-def randomColor():
-  red = random.randint(0,255)
-  green = random.randint(0,255)
-  blue = random.randint(0,255)
-  return "#" + decimal_to_hex_string(red) + decimal_to_hex_string(green) + decimal_to_hex_string(blue)
+def core(my_turtle, start):
+    renderTriangle(my_turtle)
+    my_turtle.forward(11)
+    my_turtle.left(60)
+    renderTriangle(my_turtle)
+    my_turtle.right(60)
+    renderTriangle(my_turtle)
+    my_turtle.goto(start)
 
 def render(shape, my_turtle, start, flag, screen, init):
   my_turtle.pu()
@@ -78,9 +83,7 @@ def render(shape, my_turtle, start, flag, screen, init):
   my_turtle.pd()
 
   if init == 1:
-    for x in range(0,3):
-      my_turtle.forward(11)
-      my_turtle.left(120)
+    core(my_turtle, start)
 
   for angle in shape:
     my_turtle.forward(11)
@@ -89,7 +92,7 @@ def render(shape, my_turtle, start, flag, screen, init):
 def runThisPuppy(myCollection):
   home = [300, 250]
   window = turtle.Screen()
-  window.bgcolor(randomColor())
+  window.bgcolor('#ff876c')
   winka = turtle.Turtle()
   winka.speed(100)
 
@@ -103,7 +106,6 @@ def runThisPuppy(myCollection):
       j = 250
       k -= 55
     index += 1
-    window.bgcolor(randomColor())
 
   winka.pu()
   winka.speed(1)
@@ -111,7 +113,7 @@ def runThisPuppy(myCollection):
   window.exitonclick()
 
 
-#driver begins here
+#driver code begins here
 input = sys.argv[1]
 if any(name == sys.argv[1] for name in collections.keys()):
   runThisPuppy(collections[input])
