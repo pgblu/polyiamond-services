@@ -1,19 +1,3 @@
-class Polyiamond
-end
-
-class PolyiamondCollection
-end
-
-moniamond = [[2,2,2]]
-
-diamond = [[1,2,1,2]]
-
-triamond = [[0,2,1,1,2], [1,1,2,0,2], [1,2,0,2,1], [0,2,1,1,2]]
-
-tetriamond = [[0,1,2,0,1,2], [0,2,0,2,0,2], [-1,2,1,1,1,2]]
-
-expected_maxima = (1..8).to_a.map { |k| (5**k - 1) / 2 }
-
 def pseudo_horner(seq)
   seq.reduce(0) { |value, t| 5*value + t} #unique integer representation in 5-nary
 end
