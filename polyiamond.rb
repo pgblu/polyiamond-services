@@ -43,8 +43,42 @@ def cyclic_grow(seq, results_so_far)
   result
 end
 
+def concave_grow(seq, results_so_far)
+  result = []
+  seq.each_with_index do |value, index|
+    current_seq = seq.rotate(index)
+    if current_seq[0] > 0
+      result.push current_seq
+    end
+  end
+  puts result.display
+  output = result.map do |value|
+    new_value = []
+    flag = false
+    if value[1] === 0
+      new_value += [value.shift - 1, 1]
+      value.shift
+    else
+      new_value += [value.shift - 1, 2]
+    end
+    while value[0] === 0
+      flag = true
+      new_value.push 0
+      value.shift
+    end
+    new_value += flag ? [1, value.shift - 1] : [value.shift - 1]
+    new_value += value
+    new_value
+  end
+  output
+end
+
+
 def grow_all(collection, set)
   collection.map {|sequence| cyclic_grow(sequence, set)}.flatten(1).sort_by do |seq|
     canonical_index(seq)
   end
 end
+
+concave_grow([2,1,0,1,2,0,0], []).display
+puts
